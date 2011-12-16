@@ -1,11 +1,8 @@
+<<<<<<< HEAD
 if [[ "$DISABLE_CORRECTION" == "true" ]]; then
   return
 else
   setopt correct_all
-<<<<<<< HEAD
-=======
-
->>>>>>> Add a configuration option to disable autocorrect
   alias man='nocorrect man'
   alias mv='nocorrect mv'
   alias mysql='nocorrect mysql'
@@ -14,8 +11,9 @@ else
   alias heroku='nocorrect heroku'
   alias ebuild='nocorrect ebuild'
   alias hpodder='nocorrect hpodder'
-<<<<<<< HEAD
   alias sudo='nocorrect sudo'
-=======
->>>>>>> Add a configuration option to disable autocorrect
 fi
+=======
+# correct commands, but not any arguments (correct_all would do that)
+setopt correct
+>>>>>>> Only `setopt correct`, not "correct_all".
