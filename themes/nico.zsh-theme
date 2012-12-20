@@ -46,8 +46,6 @@ function my_current_branch() {
 
 function my_tracking_branch(){
   echo `git for-each-ref --format='%(upstream:short)' $(git symbolic-ref HEAD)`
-  #string_array=(`echo $string | tr "\\/" "\n"`)
-  #echo $string_array[${#string_array[@]}]
 }
 
 
