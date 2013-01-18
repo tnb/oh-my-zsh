@@ -98,6 +98,7 @@ prompt_hg() {
 	local rev status
 	if $(hg id >/dev/null 2>&1); then
 		if $(hg prompt >/dev/null 2>&1); then
+<<<<<<< HEAD
 			if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
 				# if files are not added
 				prompt_segment red white
@@ -126,6 +127,20 @@ prompt_hg() {
 			fi
 			echo -n "⭠ $rev@$branch" $st
 		fi
+=======
+			rev=$(hg prompt {status})
+			if [[ $rev = "?" ]]; then
+				prompt_segment red white
+				rev='±'
+			elif [[ -n $rev ]]; then
+				prompt_segment yellow black
+				rev='±'
+			else
+				prompt_segment green black
+			fi
+		fi
+		echo -n $(hg prompt "⭠ {rev}@{branch}") $rev
+>>>>>>> ADDED: Mercurial repository info
 	fi
 }
 
@@ -160,4 +175,3 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
-
