@@ -104,6 +104,14 @@ prompt_hg() {
 				prompt_segment red white
 				st='±'
 			elif [[ -n $(hg prompt "{status|modified}") ]]; then
+=======
+			st=$(hg prompt {status})
+			if [[ $st = "?" ]]; then
+				# if files are not added
+				prompt_segment red white
+				st='±'
+			elif [[ -n $st ]]; then
+>>>>>>> ADDED: Mercurial prompt info support even if hg prompt extension is unavailable
 				# if any modification
 				prompt_segment yellow black
 				st='±'
@@ -127,20 +135,6 @@ prompt_hg() {
 			fi
 			echo -n "⭠ $rev@$branch" $st
 		fi
-=======
-			rev=$(hg prompt {status})
-			if [[ $rev = "?" ]]; then
-				prompt_segment red white
-				rev='±'
-			elif [[ -n $rev ]]; then
-				prompt_segment yellow black
-				rev='±'
-			else
-				prompt_segment green black
-			fi
-		fi
-		echo -n $(hg prompt "⭠ {rev}@{branch}") $rev
->>>>>>> ADDED: Mercurial repository info
 	fi
 }
 
@@ -175,3 +169,4 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
+
