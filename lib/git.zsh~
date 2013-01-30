@@ -14,19 +14,24 @@ parse_git_dirty() {
   if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
     if [[ $POST_1_7_2_GIT -gt 0 ]]; then
           SUBMODULE_SYNTAX="--ignore-submodules=dirty"
-<<<<<<< HEAD
-    fi  
-    GIT_STATUS=$(git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
-    if [[ -n $GIT_STATUS && "$GIT_STATUS" != "$CLEAN_MESSAGE" ]]; then
-=======
     fi
-    if [[ -n $(git diff --ignore-submodules HEAD 2> /dev/null) ]]; then
->>>>>>> Faster dirty git status check (using git diff)
+<<<<<<< HEAD
+    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" != "true" ]]; then
+        GIT_STATUS=$(git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
+    else
+        GIT_STATUS=$(git status -s ${SUBMODULE_SYNTAX} -uno 2> /dev/null | tail -n1)
+    fi
+    if [[ -n $(git status -s ${SUBMODULE_SYNTAX} -uno  2> /dev/null) ]]; then
+=======
+    if [[ -n $(git diff ${SUBMODULE_SYNTAX} 2> /dev/null) ]]; then
+>>>>>>> Closer to original status command, using SUBMODULE SYNTAX
       echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
     else
       echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-    fi  
-  fi  
+    fi
+  else
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
 }
 
 # get the difference between the local and remote branches
@@ -136,5 +141,3 @@ function git_compare_version() {
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
-
-
