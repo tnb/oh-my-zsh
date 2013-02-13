@@ -23,8 +23,8 @@ parse_git_dirty() {
     fi
     if [[ -n $(git status -s ${SUBMODULE_SYNTAX} -uno  2> /dev/null) ]]; then
 =======
-    if [[ -n $(git diff ${SUBMODULE_SYNTAX} 2> /dev/null) ]]; then
->>>>>>> Closer to original status command, using SUBMODULE SYNTAX
+    if [[ -n $(git diff ${SUBMODULE_SYNTAX} HEAD 2> /dev/null) ]]; then
+>>>>>>> Fixed dirty check to include files added to index
       echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
     else
       echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
