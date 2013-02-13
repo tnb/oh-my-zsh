@@ -21,10 +21,9 @@ parse_git_dirty() {
     else
         GIT_STATUS=$(git status -s ${SUBMODULE_SYNTAX} -uno 2> /dev/null | tail -n1)
     fi
-    if [[ -n $(git status -s ${SUBMODULE_SYNTAX} -uno  2> /dev/null) ]]; then
 =======
-    if [[ -n $(git diff ${SUBMODULE_SYNTAX} HEAD 2> /dev/null) ]]; then
->>>>>>> Fixed dirty check to include files added to index
+>>>>>>> Did a full circle and went back to # On branch master
+    if [[ -n $(git status -s ${SUBMODULE_SYNTAX} -uno  2> /dev/null) ]]; then
       echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
     else
       echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
@@ -141,3 +140,6 @@ function git_compare_version() {
 POST_1_7_2_GIT=$(git_compare_version "1.7.2")
 #clean up the namespace slightly by removing the checker function
 unset -f git_compare_version
+
+
+
