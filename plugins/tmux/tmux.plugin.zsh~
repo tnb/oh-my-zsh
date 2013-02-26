@@ -30,28 +30,30 @@ if which tmux &> /dev/null
 	# Determine if the terminal supports 256 colors
 	if [[ `tput colors` == "256" ]]
 	then
+<<<<<<< HEAD
 		export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITH_256COLOR
 	else
 		export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITHOUT_256COLOR
+=======
+		#use this when they have a ~/.tmux.conf
+		fixed_config=$zsh_tmux_plugin_path/tmux.extra.conf
+	else
+		#use this when they don't have a ~/.tmux.conf
+		fixed_config=$zsh_tmux_plugin_path/tmux.only.conf
+>>>>>>> Adding comments to tmux plugin.
 	fi
 
-<<<<<<< HEAD
 	# Set the correct local config file to use.
 	if [[ -f $HOME/.tmux.conf || -h $HOME/.tmux.conf ]]
-=======
-# Override tmux with our function
-function zsh_tmux_plugin_start()
-{
-	# We have other arguments, just run them
-	if [[ ! -n "$@" ]]
 	then
-		\tmux $@
-	# Try to connect to an existing session.
-	elif [[ "$ZSH_TMUX_AUTOCONNECT" == "true" ]]
->>>>>>> Tmux plugin now just runs tmux if any extra args are given.
-	then
+<<<<<<< HEAD
 		#use this when they have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.extra.conf"
+=======
+		\tmux attach || tmux -f $fixed_config new-session
+		[[ "$ZSH_TMUX_AUTOQUIT" == "true" ]] && exit
+	# Just try to fix the TERM variable.
+>>>>>>> Adding comments to tmux plugin.
 	else
 		#use this when they don't have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.only.conf"
