@@ -30,30 +30,16 @@ if which tmux &> /dev/null
 	# Determine if the terminal supports 256 colors
 	if [[ `tput colors` == "256" ]]
 	then
-<<<<<<< HEAD
 		export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITH_256COLOR
 	else
 		export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITHOUT_256COLOR
-=======
-		#use this when they have a ~/.tmux.conf
-		fixed_config=$zsh_tmux_plugin_path/tmux.extra.conf
-	else
-		#use this when they don't have a ~/.tmux.conf
-		fixed_config=$zsh_tmux_plugin_path/tmux.only.conf
->>>>>>> Adding comments to tmux plugin.
 	fi
 
 	# Set the correct local config file to use.
 	if [[ -f $HOME/.tmux.conf || -h $HOME/.tmux.conf ]]
 	then
-<<<<<<< HEAD
 		#use this when they have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.extra.conf"
-=======
-		\tmux attach || tmux -f $fixed_config new-session
-		[[ "$ZSH_TMUX_AUTOQUIT" == "true" ]] && exit
-	# Just try to fix the TERM variable.
->>>>>>> Adding comments to tmux plugin.
 	else
 		#use this when they don't have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.only.conf"
@@ -98,3 +84,12 @@ else
 	print "zsh tmux plugin: tmux not found. Please install tmux before using this plugin."
 fi
 
+<<<<<<< HEAD
+=======
+alias tmux=zsh_tmux_plugin_start
+
+if [[ "$ZSH_TMUX_AUTOSTART" == "true" ]]
+then
+	zsh_tmux_plugin_start
+fi
+>>>>>>> Enabling autostart of tmux in tmux plugin.
