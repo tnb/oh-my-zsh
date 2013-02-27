@@ -24,7 +24,6 @@ if which tmux &> /dev/null
 	[[ -n "$ZSH_TMUX_FIXTERM_WITH_256COLOR" ]] || ZSH_TMUX_FIXTERM_WITH_256COLOR="screen-256color"
 
 
-<<<<<<< HEAD
 	# Get the absolute path to the current directory
 	local zsh_tmux_plugin_path="$(cd "$(dirname "$0")" && pwd)"
 
@@ -35,35 +34,15 @@ if which tmux &> /dev/null
 	else
 		export ZSH_TMUX_TERM=$ZSH_TMUX_FIXTERM_WITHOUT_256COLOR
 	fi
-=======
-# Set the correct local config file to use.
-if [[ -f $HOME/.tmux.conf || -h $HOME/.tmux.conf ]]
-then
-	#use this when they have a ~/.tmux.conf
-	fixed_config="$zsh_tmux_plugin_path/tmux.extra.conf"
-else
-	#use this when they don't have a ~/.tmux.conf
-	fixed_config="$zsh_tmux_plugin_path/tmux.only.conf"
-fi
->>>>>>> Checking environment instead of local variable for fixing term in tmux plugin.
 
 	# Set the correct local config file to use.
 	if [[ -f $HOME/.tmux.conf || -h $HOME/.tmux.conf ]]
 	then
-<<<<<<< HEAD
 		#use this when they have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.extra.conf"
 	else
 		#use this when they don't have a ~/.tmux.conf
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.only.conf"
-=======
-		\tmux attach || \tmux `[[ "$ZSH_TMUX_FIXTERM" == "true" ]] && echo '-f '$fixed_config`  new-session
-		[[ "$ZSH_TMUX_AUTOQUIT" == "true" ]] && exit
-	# Just run tmux, fixing the TERM variable if requested.
-	else
-		\tmux `[[ "$ZSH_TMUX_FIXTERM" == "true" ]] && echo '-f '$fixed_config`
-		[[ "$ZSH_TMUX_AUTOQUIT" == "true" ]] && exit
->>>>>>> Checking environment instead of local variable for fixing term in tmux plugin.
 	fi
 
 	# Wrapper function for tmux.
@@ -88,6 +67,7 @@ fi
 	# Use the completions for tmux for our function
 	compdef _tmux _zsh_tmux_plugin_run
 
+<<<<<<< HEAD
 	# Alias tmux to our wrapper function.
 	alias tmux=_zsh_tmux_plugin_run
 
@@ -103,5 +83,10 @@ fi
 	fi
 else
 	print "zsh tmux plugin: tmux not found. Please install tmux before using this plugin."
+=======
+if [[ ! -n "$TMUX" && "$ZSH_TMUX_AUTOSTART" == "true" ]]
+then
+	zsh_tmux_plugin_run
+>>>>>>> Checking if already in tmux before autostarting in tmux in tmux plugin.
 fi
 
