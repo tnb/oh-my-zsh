@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Only run if tmux is actually installed
 if which tmux &> /dev/null
 	then
@@ -23,33 +22,6 @@ if which tmux &> /dev/null
 	# Tmux states this should be screen-256color, but you may need to change it on
 	# systems without the proper terminfo
 	[[ -n "$ZSH_TMUX_FIXTERM_WITH_256COLOR" ]] || ZSH_TMUX_FIXTERM_WITH_256COLOR="screen-256color"
-=======
-# Configuration variables
-#
-# Automatically start tmux
-[[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=false
-# Only autostart once. If set to false, tmux will attempt to
-# autostart every time your zsh configs are reloaded.
-[[ -n "$ZSH_TMUX_AUTOSTART_ONCE" ]] || ZSH_TMUX_AUTOSTART_ONCE=true
-# Automatically connect to a previous session if it exists
-[[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=true
-# Automatically close the terminal when tmux exits
-[[ -n "$ZSH_TMUX_AUTOQUIT" ]] || ZSH_TMUX_AUTOQUIT=$ZSH_TMUX_AUTOSTART
-# Set term to screen or screen-256color based on current terminal support
-[[ -n "$ZSH_TMUX_FIXTERM" ]] || ZSH_TMUX_FIXTERM=true
-
-
-# Get the absolute path to the current directory
-local zsh_tmux_plugin_path="$(cd "$(dirname "$0")" && pwd)"
-
-# Determine if the terminal supports 256 colors
-if [[ `tput colors` == "256" ]]
-then
-	export ZSH_TMUX_TERM="screen-256color"
-else
-	export ZSH_TMUX_TERM="screen"
-fi
->>>>>>> Adding option to prevent autostarting tmux more than once in the same session.
 
 
 	# Get the absolute path to the current directory
@@ -73,6 +45,7 @@ fi
 		export _ZSH_TMUX_FIXED_CONFIG="$zsh_tmux_plugin_path/tmux.only.conf"
 	fi
 
+<<<<<<< HEAD
 	# Wrapper function for tmux.
 	function _zsh_tmux_plugin_run()
 	{
@@ -94,8 +67,11 @@ fi
 
 	# Use the completions for tmux for our function
 	compdef _tmux _zsh_tmux_plugin_run
+=======
+# Alias tmux to our wrapper function.
+alias tmux=zsh_tmux_plugin_run
+>>>>>>> Fixing typo in alias.
 
-<<<<<<< HEAD
 	# Alias tmux to our wrapper function.
 	alias tmux=_zsh_tmux_plugin_run
 
@@ -111,16 +87,5 @@ fi
 	fi
 else
 	print "zsh tmux plugin: tmux not found. Please install tmux before using this plugin."
-=======
-# Autostart if not already in tmux and enabled.
-if [[ ! -n "$TMUX" && "$ZSH_TMUX_AUTOSTART" == "true" ]]
-then
-	# Actually don't autostart if we already did and multiple autostarts are disabled.
-	if [[ "$ZSH_TMUX_AUTOSTART_ONCE" == "false" || "$ZSH_TMUX_AUTOSTARTED" != "true" ]]
-	then
-		export ZSH_TMUX_AUTOSTARTED=true
-		zsh_tmux_plugin_run
-	fi
->>>>>>> Adding option to prevent autostarting tmux more than once in the same session.
 fi
 
