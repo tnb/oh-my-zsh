@@ -68,9 +68,12 @@ if which tmux &> /dev/null
 	# Use the completions for tmux for our function
 	compdef _tmux _zsh_tmux_plugin_run
 =======
+# Use the completions for tmux for our function
+compdef _tmux zsh_tmux_plugin_run
+
 # Alias tmux to our wrapper function.
 alias tmux=zsh_tmux_plugin_run
->>>>>>> Fixing typo in alias.
+>>>>>>> Adding compdef to maintain tmux completions.
 
 	# Alias tmux to our wrapper function.
 	alias tmux=_zsh_tmux_plugin_run
