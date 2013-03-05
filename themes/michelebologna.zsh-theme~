@@ -16,7 +16,10 @@ RESET_COLOR="%{$reset_color%}"
 USERNAME_NORMAL_COLOR=$WHITE
 USERNAME_ROOT_COLOR=$RED
 HOSTNAME_NORMAL_COLOR=$BLUE
+<<<<<<< HEAD
 # uncomment next line if you want auto-generated hostname color
+=======
+>>>>>>> added michelebologna theme
 #for i in `hostname`; HOSTNAME_NORMAL_COLOR=$COLOR_ARRAY[$[((#i))%7+1]]
 HOSTNAME_ROOT_COLOR=$RED
 HOSTNAME_COLOR=%(!.$HOSTNAME_ROOT_COLOR.$HOSTNAME_NORMAL_COLOR)
@@ -42,4 +45,3 @@ ZSH_THEME_GIT_PROMPT_CLEAN=")"
 # wrap all together
 PROMPT='$USERNAME_OUTPUT$HOSTNAME_OUTPUT:$CURRENT_DIR_OUTPUT $LAST_COMMAND_OUTPUT%#$RESET_COLOR '
 RPROMPT='%1(j.fg: [%j].) $GREEN$(git_prompt_info)$RESET_COLOR [%@]'
-
