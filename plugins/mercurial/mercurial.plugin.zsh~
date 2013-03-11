@@ -3,14 +3,16 @@
 alias hgc='hg commit'
 alias hgb='hg branch'
 alias hgba='hg branches'
-alias hgbk='hg bookmarks'
 alias hgco='hg checkout'
 alias hgd='hg diff'
 alias hged='hg diffmerge'
 # pull and update
 alias hgi='hg incoming'
 alias hgl='hg pull -u'
+<<<<<<< HEAD
 alias hglr='hg pull --rebase'
+=======
+>>>>>>> Mercurial: add aliases for 'incoming' and 'outgoing' commands
 alias hgo='hg outgoing'
 alias hgp='hg push'
 alias hgs='hg status'
@@ -22,4 +24,3 @@ function hg_current_branch() {
     echo hg:$(hg branch)
   fi
 }
-
