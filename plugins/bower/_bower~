@@ -1,13 +1,21 @@
 
 
+<<<<<<< HEAD
 # Credits to npm's awesome completion utility.
+=======
+# Credits to npm's. Awesome completion utility.
+>>>>>>> add bower autocompletion
 #
 # Bower completion script, based on npm completion script.
 
 ###-begin-bower-completion-###
 #
 # Installation: bower completion >> ~/.bashrc  (or ~/.zshrc)
+<<<<<<< HEAD
 # Or, maybe: bower completion > /usr/local/etc/bash_completion.d/bower
+=======
+# Or, maybe: bower completion > /usr/local/etc/bash_completion.d/npm
+>>>>>>> add bower autocompletion
 #
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
@@ -55,5 +63,4 @@ elif type compctl &>/dev/null; then
   compctl -K _bower_completion bower
 fi
 ###-end-bower-completion-###
-
 
