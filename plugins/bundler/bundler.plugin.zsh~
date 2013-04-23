@@ -10,8 +10,8 @@ alias bu="bundle update"
 <<<<<<< HEAD
 bundled_commands=(annotate cap capify cucumber foreman guard jekyll middleman nanoc rackup rainbows rake rspec ruby shotgun spec spin spork thin thor unicorn unicorn_rails puma)
 =======
-bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma)
->>>>>>> Fixes #1485 zeus should not be bundled
+bundled_commands=(annotate cap capify cucumber foreman guard jekyll middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma)
+>>>>>>> Added 'jekyll' to list of bundled commands
 
 ## Functions
 
@@ -46,3 +46,4 @@ for cmd in $bundled_commands; do
         compdef _$cmd bundled_$cmd=$cmd
   fi
 done
+
