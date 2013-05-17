@@ -12,4 +12,3 @@ else
   alias hpodder='nocorrect hpodder'
   alias sudo='nocorrect sudo'
 fi
-

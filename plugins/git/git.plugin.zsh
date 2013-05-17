@@ -108,4 +108,3 @@ function _git_log_prettily(){
 }
 alias glp="_git_log_prettily"
 compdef _git glp=git-log
-
