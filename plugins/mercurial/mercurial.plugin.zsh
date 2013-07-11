@@ -22,4 +22,3 @@ function hg_current_branch() {
     echo hg:$(hg branch)
   fi
 }
-
