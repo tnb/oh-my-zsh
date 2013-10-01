@@ -49,9 +49,7 @@ function my_tracking_branch(){
 }
 
 
-PROMPT='%{$fg[blue]%}%~$(my_git_prompt) %{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯ %{$reset_color%}'
-
-
+PROMPT='%{$fg[blue]%}%~ $(my_git_prompt)%{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯ %{$reset_color%}'
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}‹%{$fg[yellow]%}"
