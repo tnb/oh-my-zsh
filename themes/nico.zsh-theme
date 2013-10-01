@@ -49,7 +49,7 @@ function my_tracking_branch(){
 }
 
 
-PROMPT='%{$fg_bold[green]%}%n@%m $(my_git_prompt)%{$fg[blue]%}%~%{$fg[red]%} » %{$reset_color%}'
+PROMPT='%{$fg[blue]%}%~%{$fg[red]%} $(my_git_prompt) » %{$reset_color%}'
 
 
 
