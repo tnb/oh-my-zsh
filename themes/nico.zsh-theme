@@ -50,18 +50,11 @@ function my_tracking_branch(){
 
 function ssh_prompt() {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    SESSION_TYPE=remote/ssh
-  # many other tests omitted
+    echo "%{$fg[red]%}%M "
   else
     case $(ps -o comm= -p $PPID) in
-      sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+      sshd|*/sshd) echo "%M ";;
     esac
-  fi
-
-  if [ "$SESSION_TYPE" = "remote/ssh" ]; then
-    echo "$fg[red]%M %{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯ "
-  else
-    echo ""
   fi
 }
 
