@@ -48,6 +48,21 @@ function my_tracking_branch(){
   echo `git for-each-ref --format='%(upstream:short)' $(git symbolic-ref HEAD)`
 }
 
+function ssh_prompt() {
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    SESSION_TYPE=remote/ssh
+  # many other tests omitted
+  else
+    case $(ps -o comm= -p $PPID) in
+      sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+    esac
+  fi
+
+  if [SESSION_TYPE= "remote/ssh"]; then
+    echo "$fg[red]%h - "
+  fi
+}
+
 
 PROMPT='%{$fg[blue]%}%~ $(my_git_prompt)%{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯ %{$reset_color%}'
 
