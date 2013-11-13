@@ -58,7 +58,7 @@ function ssh_prompt() {
     esac
   fi
 
-  if [SESSION_TYPE = "remote/ssh"]; then
+  if ["$SESSION_TYPE" = "remote/ssh"]; then
     echo "$fg[red]%h - "
   fi
 }
