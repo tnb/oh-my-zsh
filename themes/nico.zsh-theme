@@ -59,7 +59,7 @@ function ssh_prompt() {
   fi
 
   if [ "$SESSION_TYPE" = "remote/ssh" ]; then
-    echo "$fg[red]%h - "
+    echo "$fg[red]%M %{$fg[red]%}❯%{$fg[yellow]%}❯%{$fg[green]%}❯ "
   else
     echo ""
   fi
