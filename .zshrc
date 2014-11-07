@@ -71,8 +71,6 @@ zstyle ':completion:*:cp:*' ignore-line yes
 # Autocompletion avec le sudo
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-eval `dircolors ~/.dir_colors`
-
 # Alias
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
