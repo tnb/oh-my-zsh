@@ -8,7 +8,7 @@
 
 # Machine name.
 function box_name {
-    [ -f ~/.box-name ] && cat ~/.box-name || hostname
+    [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
 }
 
 # Directory info.
@@ -33,9 +33,7 @@ ${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
-<<<<<<< HEAD
-=======
-if [[ "$(whoami)" == "root" ]]; then
+if [[ "$USER" == "root" ]]; then
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
@@ -47,4 +45,3 @@ ${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 fi
->>>>>>> upstream/master
