@@ -98,5 +98,6 @@ SIMPLE_MERGE="echo -e '\n-- Pull last version --' && git checkout $V2 && git pul
 alias simplemerge="eval $SIMPLE_MERGE"
 alias doublemerge="eval $DOUBLE_MERGE"
 
+[[ -e ~/.zshopt ]] && emulate sh -c 'source ~/.zshopt'
 
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
