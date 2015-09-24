@@ -89,6 +89,14 @@ export PATH=$HOME/usr/bin:$PATH
 
 export EDITOR="vim"
 
-#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+# Pour les one-liner de git
+V1=lts-2015.5
+V2=2015.5
+DOUBLE_MERGE="echo -e '\n-- Pull last version --' && git checkout $V1 && git pull && git checkout master && git pull && echo -e '\n-- Merge of $V1 on $V2 --' && git checkout $V2 && git pull && git merge $V1 -m 'merge $V1' && echo -e '\n-- Merge $V2 on master --' && git checkout master && git pull && git merge $V2 -m 'merge $V2' && echo -e '\n-- Push branches --' && git push && git checkout $V2 && git push && git checkout $V1 && git push"
+
+SIMPLE_MERGE="echo -e '\n-- Pull last version --' && git checkout $V2 && git pull && git checkout master && git pull && echo -e '\n-- Merge of $V2 on master --' && git merge $V2 -m 'merge $V2' && git push && git checkout $V2 && git push"
+alias simplemerge="eval $SIMPLE_MERGE"
+alias doublemerge="eval $DOUBLE_MERGE"
+
 
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
