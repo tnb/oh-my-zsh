@@ -92,9 +92,9 @@ export EDITOR="vim"
 # Pour les one-liner de git
 B_REC=monarch-2016.1
 B_MAIN=2016.1
-REC_MERGE="echo -e '\n-- Pull last version --' && git checkout $B_REC && git pull && echo -e '\n-- Merge of $B_REC on master --' && git checkout master && git pull && git merge $B_REC -m 'merge $B_REC sur le master' && echo -e '\n-- Push branches --' && git push && git checkout $B_REC && git push"
+REC_MERGE="echo -e '\n-- Pull last version --' && git checkout $B_REC && git pull && echo -e '\n-- Merge of $B_REC on master --' && git checkout master && git pull && git merge $B_REC -m 'merge de $B_REC sur le master' && echo -e '\n-- Push branches --' && git push && git checkout $B_REC && git push"
 
-MAIN_MERGE="echo -e '\n-- Pull last version --' && git checkout $B_MAIN && git pull && echo -e '\n-- Merge of $B_MAIN on master --' && git checkout master && git pull && git merge $B_MAIN -m 'merge $B_MAIN sur le master' && echo -e '\n-- Push branches --' && git push && git checkout $B_MAIN && git push"
+MAIN_MERGE="echo -e '\n-- Pull last version --' && git checkout $B_MAIN && git pull && echo -e '\n-- Merge of $B_MAIN on master --' && git checkout master && git pull && git merge $B_MAIN -m 'merge de $B_MAIN sur le master' && echo -e '\n-- Push branches --' && git push && git checkout $B_MAIN && git push"
 alias merge_rec="eval $REC_MERGE"
 alias merge_main="eval $MAIN_MERGE"
 
